@@ -1,0 +1,1175 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Bebas+Neue&family=Crimson+Text:ital@0;1&display=swap');
+
+:root {
+  --cream: #FFFFFF;      /* Blanco puro para fondos principales */
+  --warm-tan: #D1D1D1;    /* Gris claro para paneles (ej. fondo de la taza) */
+  --espresso: #222222;    /* Gris muy oscuro para texto y líneas principales */
+  --rust: #666666;        /* Gris medio para subtítulos y acentos secundarios */
+  --sage: #777777;        /* Gris medio (similar a rust) */
+  --ink: #080808;         /* Casi negro para fondos oscuros como el footer */
+  --parchment: #F5F5F5;   /* Blanco hueso para fondos secundarios (nav, tarjetas) */
+  --gold: #999999;        /* Gris claro para brillos y líneas de boceto secundarias */
+}
+
+/* Dark Theme Override */
+body.dark-mode {
+  --cream: #1A1A1A;      /* Fondo principal oscuro */
+  --warm-tan: #333333;    /* Paneles oscuros (fondo taza), un poco más claro para el hover */
+  --espresso: #E0E0E0;    /* Texto y líneas principales claras */
+  --rust: #888888;        /* Subtítulos y acentos secundarios grises */
+  --sage: #888888;        /* Igual que rust */
+  --ink: #101010;         /* Footer/Hero casi negro */
+  --parchment: #252525;   /* Fondos secundarios oscuros (nav, tarjetas) */
+  --gold: #9E9E9E;        /* Brillos y acentos grises claros */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  display: block;
+  font-family: 'Crimson Text', serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.page-wrap {
+  background: var(--cream);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+/* ANIME LINE ART DECORATION - thick outlines with hidden fine details */
+.anime-deco {
+  position: absolute;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* NOISE TEXTURE overlay */
+.grain {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 999;
+  opacity: 0.5;
+}
+
+/* TOP ANNOUNCEMENT BAR */
+.top-bar {
+  background: var(--ink);
+  color: var(--cream);
+  text-align: center;
+  padding: 8px 16px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 10;
+}
+
+/* NAVIGATION */
+nav {
+  background: var(--parchment);
+  border: 2px solid var(--espresso);
+  border-radius: 12px;
+  margin: 16px 24px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 42px;
+  color: var(--espresso);
+  letter-spacing: 4px;
+  line-height: 1;
+  padding: 10px 0;
+  border-right: 2px solid var(--espresso);
+  padding-right: 24px;
+  margin-right: 24px;
+}
+
+.nav-sub {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 0;
+  list-style: none;
+  flex: 1;
+  justify-content: flex-start;
+  margin-left: 40px;
+}
+
+.nav-links a {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  letter-spacing: 2px;
+  color: var(--espresso);
+  text-decoration: none;
+  padding: 18px 16px;
+  display: block;
+  border-right: 1px solid rgba(44,24,16,0.1);
+  transition: background 0.2s;
+}
+
+.nav-links a:hover { background: var(--espresso); color: var(--cream); }
+.nav-links .sale a { color: var(--rust); font-weight: 700; }
+
+.nav-icons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.nav-icon-btn {
+  background: none;
+  border: 2px solid var(--espresso);
+  width: 36px;
+  height: 36px;
+  border-radius: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: var(--espresso);
+}
+
+/* HERO */
+.hero {
+  position: relative;
+  background: var(--ink);
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+}
+
+/* Mantiene los colores del Hero consistentes en modo oscuro */
+body.dark-mode .hero {
+  --cream: #FFFFFF;
+  --warm-tan: #D1D1D1;
+  --espresso: #222222;
+  --gold: #999999;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(
+    45deg,
+    var(--cream) 0,
+    var(--cream) 1px,
+    transparent 0,
+    transparent 50%
+  );
+  background-size: 20px 20px;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 5;
+  padding: 60px 80px;
+  max-width: 560px;
+}
+
+.hero-eyebrow {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* SVG Title Animation */
+.hero-title-svg {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  letter-spacing: 6px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.svg-word {
+  fill: transparent;
+  stroke-width: 1.5px;
+}
+
+.word-cafe {
+  stroke: var(--cream);
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: drawSvgText 1.5s ease-out forwards, fillCream 0.75s 0.75s forwards;
+}
+
+.word-amp {
+  stroke: var(--gold);
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  animation: drawSvgText 1.5s ease-out forwards, fillGold 0.75s 0.75s forwards;
+}
+
+.word-vintage {
+  stroke: var(--cream);
+  stroke-dasharray: 1400;
+  stroke-dashoffset: 1400;
+  animation: drawSvgText 1.5s ease-out forwards, fillCream 0.75s 0.75s forwards;
+}
+
+@keyframes drawSvgText {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes fillCream {
+  to { fill: var(--cream); stroke: transparent; }
+}
+
+@keyframes fillGold {
+  to { fill: var(--gold); stroke: transparent; }
+}
+
+.hero-subtitle {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--warm-tan);
+  margin-bottom: 32px;
+  line-height: 1.5;
+  opacity: 0;
+  animation: fadeInElement 0.8s 0.75s forwards;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeInElement 0.8s 1.1s forwards;
+}
+
+@keyframes fadeInElement {
+  to { opacity: 1; }
+}
+
+/* Right Graphic SVG */
+.hero-graphic-right {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45%;
+  max-width: 480px;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.sketch-path-cream path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawSvgText 1.5s 0.2s ease-out forwards;
+}
+
+.sketch-path-gold path {
+  stroke-dasharray: 1200;
+  stroke-dashoffset: 1200;
+  animation: drawSvgText 1.5s 0.4s ease-out forwards;
+}
+
+.sketch-text {
+  opacity: 0;
+  animation: fadeInElement 0.8s 1.2s forwards;
+}
+
+.sketch-text-offset {
+  opacity: 0;
+  animation: fadeInElement 0.8s 1.4s forwards;
+}
+
+.btn-primary {
+  background: var(--cream);
+  color: var(--espresso);
+  border: none;
+  padding: 14px 32px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border: 2px solid var(--cream);
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover { 
+  background: var(--gold); 
+  border-color: var(--gold); 
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--cream);
+  border: 2px solid var(--cream);
+  padding: 14px 32px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover { 
+  background: var(--gold); 
+  color: var(--espresso); 
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* Botón invertido (Oscuro) para fondos claros */
+.btn-dark-outline {
+  background: transparent;
+  color: var(--espresso);
+  border: 2px solid var(--espresso);
+  padding: 14px 32px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 3px;
+  cursor: pointer;
+  border-radius: 0px;
+  transition: all 0.3s ease, box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-dark-outline:hover { background: var(--espresso); color: var(--cream); }
+
+/* SECTION HEADER */
+.section-header {
+  text-align: center;
+  padding: 60px 2rem 40px;
+  position: relative;
+}
+
+.section-header::before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--espresso);
+  margin: 0 auto 20px;
+}
+
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 6px;
+  color: var(--espresso);
+  line-height: 1;
+}
+
+.section-sub {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--rust);
+  margin-top: 8px;
+}
+
+/* PRODUCT GRID */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 0 2rem 60px;
+}
+
+.product-card {
+  border: 1px solid rgba(44,24,16,0.15);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--parchment);
+}
+
+.product-card:hover .product-overlay { opacity: 1; }
+
+.product-img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--warm-tan);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Cover images for products and panels */
+.img-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+/* Vintage product placeholder with manga-style silhouette */
+.product-silhouette {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(44,24,16,0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.product-info {
+  padding: 16px;
+  border-top: 1px solid rgba(44,24,16,0.15);
+}
+
+.product-tag {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--rust);
+  text-transform: uppercase;
+}
+
+.product-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 15px;
+  color: var(--espresso);
+  margin: 4px 0;
+  font-weight: 400;
+}
+
+.product-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  letter-spacing: 2px;
+  color: var(--espresso);
+}
+
+.product-price .original {
+  font-size: 14px;
+  color: var(--rust);
+  text-decoration: line-through;
+  margin-left: 8px;
+}
+
+/* CAFE SECTION */
+.cafe-section {
+  background: var(--cream);
+  display: grid;
+  grid-template-columns: 4fr 5fr; /* Panel izquierdo ligeramente más pequeño */
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cafe-img-panel {
+  background: var(--warm-tan);
+  position: relative;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Manga-style cross-hatch shading in coffee cup */
+.cafe-art {
+  position: relative;
+  z-index: 2;
+}
+
+.cafe-art .draw-line {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: drawCafeArt 2.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.cafe-art .delay-1 { animation-delay: 0.3s; }
+.cafe-art .delay-2 { animation-delay: 0.6s; }
+.cafe-art .delay-3 { animation-delay: 0.9s; }
+.cafe-art .delay-4 { animation-delay: 1.2s; }
+
+@keyframes drawCafeArt { to { stroke-dashoffset: 0; } }
+
+.cafe-text-panel {
+  padding: 60px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* Interactable Coffee Beans injected by JS */
+.coffee-bean {
+  position: absolute;
+  pointer-events: none; /* No interfieren con los clics */
+  z-index: 1; /* Sobre el fondo, pero bajo el dibujo de la taza (z-index: 2) */
+  opacity: 0.6; /* Un poco más visibles en los espacios vacíos */
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Menú Button Effect */
+.menu-btn-wrap {
+  position: relative;
+  display: inline-block;
+  width: fit-content;
+  z-index: 10;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.menu-btn-wrap:hover {
+  transform: translateY(-8px) scale(1.03) rotate(-1deg);
+}
+
+.btn-circle-svg {
+  position: absolute;
+  top: -26px; left: -26px; right: -26px; bottom: -26px;
+  width: calc(100% + 52px); height: calc(100% + 52px);
+  pointer-events: none;
+  z-index: 3; /* Asegura que el círculo se dibuje por encima del botón */
+}
+
+.btn-circle-svg path {
+  fill: none; stroke: var(--espresso); stroke-width: 2.5; stroke-linecap: round;
+  stroke-dasharray: 600; stroke-dashoffset: 600;
+  transition: stroke-dashoffset 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-btn-wrap:hover .btn-circle-svg path {
+  stroke-dashoffset: 0;
+}
+
+/* Efecto pop-out estilo tarjeta manga al hacer hover */
+.menu-btn-wrap:hover .btn-dark-outline {
+  background: var(--parchment);
+  color: var(--espresso);
+  border-radius: 12px;
+  box-shadow: 10px 10px 0px var(--espresso);
+}
+
+.cafe-eyebrow {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  color: var(--rust);
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.cafe-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  letter-spacing: 5px;
+  color: var(--espresso);
+  line-height: 0.9;
+  margin-bottom: 20px;
+}
+
+.cafe-body {
+  font-family: 'Crimson Text', serif;
+  font-size: 17px;
+  color: var(--espresso);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+/* CATEGORIES */
+.categories-section {
+  padding: 60px 2rem;
+  background: var(--parchment);
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.cat-card {
+  position: relative;
+  cursor: pointer;
+  background: var(--cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  border-radius: 16px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cat-card:hover {
+  background: var(--warm-tan);
+  transform: translateY(-8px) scale(1.03) rotate(-1deg);
+  box-shadow: 10px 10px 0px var(--espresso);
+}
+
+.cat-label {
+  position: relative;
+  z-index: 2;
+  margin-top: 16px;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cat-label-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px;
+  letter-spacing: 4px;
+  color: var(--espresso);
+}
+
+.cat-label-count {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--rust);
+  letter-spacing: 1px;
+}
+
+/* --- ANIMACIONES DE ILUSTRACIONES MANGA (Categorías) --- */
+.manga-icon {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+  transition: transform 0.4s cubic-bezier(0.25, 1.5, 0.5, 1);
+}
+
+.manga-icon path {
+  stroke-dasharray: 800;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.6s ease-out;
+}
+
+.manga-offset {
+  opacity: 0.6;
+}
+
+/* Redibujar icono y marco en Hover */
+.cat-card:hover .manga-icon {
+  transform: scale(1.1) rotate(-3deg);
+}
+
+.cat-card:hover .manga-icon path {
+  stroke-dashoffset: 800;
+  animation: drawMangaIcon 0.8s forwards;
+}
+
+.cat-card:hover .manga-offset {
+  animation-delay: 0.1s !important;
+}
+
+.cat-card:hover .card-svg-border rect {
+  stroke-dashoffset: 4000;
+  animation: drawCarouselBorder 0.6s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes drawMangaIcon {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Ajuste responsivo para la cuadrícula de categorías */
+@media (max-width: 900px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 500px) {
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MARQUEE */
+.marquee-wrap {
+  background: var(--ink);
+  padding: 14px 0;
+  overflow: hidden;
+  border-top: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 48px;
+  white-space: nowrap;
+  animation: marqueeScroll 20s linear infinite;
+}
+
+.marquee-item {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  letter-spacing: 4px;
+  color: var(--cream);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Corrige el color del texto de la pista en modo oscuro */
+body.dark-mode .marquee-item {
+  color: var(--espresso);
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+@keyframes marqueeScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 60px 2rem 32px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 52px;
+  letter-spacing: 4px;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.footer-tagline {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--warm-tan);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin: 8px 0 20px;
+}
+
+.footer-address {
+  font-family: 'Crimson Text', serif;
+  font-size: 14px;
+  color: rgba(237,224,196,0.6);
+  line-height: 1.8;
+}
+
+.footer-col h4 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.footer-col ul { list-style: none; }
+
+.footer-col li {
+  font-family: 'Crimson Text', serif;
+  font-size: 14px;
+  color: rgba(237,224,196,0.7);
+  line-height: 2.2;
+  cursor: pointer;
+}
+
+.footer-col li:hover { color: var(--cream); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(237,224,196,0.15);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-family: 'Crimson Text', serif;
+  font-size: 12px;
+  color: rgba(237,224,196,0.4);
+  letter-spacing: 1px;
+}
+
+/* DECORATIVE ANIME LINES scattered through page */
+.ink-line {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Search bar */
+.search-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--espresso);
+  overflow: hidden;
+  background: var(--cream);
+}
+
+.search-wrap input {
+  border: none;
+  background: transparent;
+  padding: 8px 12px;
+  font-family: 'Crimson Text', serif;
+  font-size: 14px;
+  color: var(--espresso);
+  outline: none;
+  width: 160px;
+}
+
+.search-wrap button {
+  background: var(--espresso);
+  border: none;
+  color: var(--cream);
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+/* Testimonial / Event banner */
+.event-banner {
+  background: var(--rust);
+  padding: 16px 60px 16px 2rem; /* Espacio derecho extra para la flecha */
+  position: relative;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  max-height: 160px;
+}
+
+.event-banner.collapsed {
+  padding: 8px 60px 8px 2rem;
+  max-height: 40px;
+}
+
+.event-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  width: 100%;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.event-banner.collapsed .event-content {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+.event-toggle-btn {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg);
+  background: none;
+  border: none;
+  color: var(--cream);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  opacity: 0.6;
+  transition: opacity 0.2s, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.event-toggle-btn:hover {
+  opacity: 1;
+}
+
+.event-banner.collapsed .event-toggle-btn {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+.event-label {
+  font-family: 'Crimson Text', serif;
+  font-style: italic;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: rgba(245,237,216,0.7);
+  text-transform: uppercase;
+}
+
+.event-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  letter-spacing: 4px;
+  color: var(--cream);
+  line-height: 1;
+}
+
+.event-detail {
+  font-family: 'Crimson Text', serif;
+  font-size: 15px;
+  color: var(--warm-tan);
+  font-style: italic;
+}
+
+/* Event Button Hover & Arrow Anim */
+.event-actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.event-btn {
+  position: relative;
+  z-index: 2;
+  transition: background 0.2s, color 0.2s, transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+}
+
+.event-btn:hover {
+  transform: translateY(-4px) scale(1.05) rotate(-2deg);
+  box-shadow: 6px 6px 0px var(--espresso);
+  background: var(--gold) !important;
+  border-color: var(--gold) !important;
+  color: var(--ink) !important;
+}
+
+.event-arrow {
+  position: absolute;
+  right: calc(100% + 16px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 24px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.event-arrow path {
+  fill: none;
+  stroke: var(--cream);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  transition: stroke-dashoffset 0.3s ease-out;
+}
+
+.event-btn:hover ~ .event-arrow { opacity: 1; }
+.event-btn:hover ~ .event-arrow path { stroke-dashoffset: 0; }
+
+/* Carousel de Productos */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  padding: 0 60px; /* Espacio para los botones de navegación */
+  box-sizing: border-box;
+  margin-bottom: 20px;
+}
+
+.carousel-wrapper {
+  overflow: hidden;
+  width: 100%;
+}
+
+.carousel-track {
+  display: flex;
+  /* La transición y el transform se manejan con JS */
+}
+
+.carousel-track .product-card {
+  flex: 0 0 25%; /* Muestra 4 productos a la vez en desktop */
+  width: 25%;
+  margin-bottom: 0; /* Quitamos el margen inferior original */
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 40%; /* Ajustado para centrarse con la imagen */
+  transform: translateY(-50%);
+  background-color: var(--cream);
+  color: var(--espresso);
+  border: 2px solid var(--espresso);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none; /* Evita que el texto del botón se seleccione */
+}
+
+.carousel-btn:hover {
+  background-color: var(--espresso);
+  color: var(--cream);
+}
+
+.carousel-btn.prev {
+  left: 0;
+}
+
+.carousel-btn.next {
+  right: 0;
+}
+
+/* Ajustes para pantallas más pequeñas */
+@media (max-width: 1024px) {
+  .carousel-track .product-card {
+    flex-basis: 33.33%; /* 3 productos */
+    width: 33.33%;
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+    padding: 0 45px;
+  }
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .carousel-track .product-card {
+    flex-basis: 50%; /* 2 productos */
+    width: 50%;
+  }
+}
+
+/* --- ANIMACIONES DEL CARRUSEL (Dibujado SVG y desvanecimiento) --- */
+.carousel-track .product-card {
+  border: none !important; /* Reemplazamos el borde aburrido por el marco SVG */
+  padding: 12px; /* Añadimos espacio para que la imagen quede "adentro" de la tarjeta */
+  border-radius: 16px; /* Esquinas curvas para el contenedor */
+  background-color: var(--parchment);
+  transition: background-color 0.25s ease;
+  margin-bottom: 0;
+}
+
+.carousel-track .product-img {
+  border-radius: 8px 8px 0 0; /* Imagen con bordes curvos para encajar */
+}
+
+.carousel-track .product-info {
+  border-top: none; /* Quitamos la línea para un look más limpio */
+  border-radius: 0 0 8px 8px;
+}
+
+.card-svg-border {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.card-svg-border rect {
+  fill: none;
+  stroke-dasharray: 4000;
+  stroke-dashoffset: 0;
+}
+
+.svg-rect-primary {
+  stroke: var(--espresso);
+  stroke-width: 2px;
+}
+
+.svg-rect-secondary {
+  stroke: var(--gold);
+  stroke-width: 1px;
+  opacity: 0.7;
+}
+
+.product-img, .product-info {
+  transition: opacity 0.25s ease;
+  opacity: 1;
+}
+
+/* --- ESTADOS DE SECUENCIA DE ANIMACIÓN --- */
+
+/* 1. Tarjeta oculta esperando a entrar */
+.card-hidden {
+  background-color: transparent !important;
+}
+.card-hidden .product-img,
+.card-hidden .product-info {
+  opacity: 0 !important;
+  transition: none !important;
+}
+.card-hidden .card-svg-border rect {
+  stroke-dashoffset: 4000 !important;
+  transition: none !important;
+}
+
+/* 2. Tarjeta desvaneciéndose (Salida) */
+.card-anim-out {
+  background-color: transparent !important;
+}
+.card-anim-out .product-img,
+.card-anim-out .product-info {
+  opacity: 0;
+}
+.card-anim-out .card-svg-border rect {
+  stroke-dashoffset: 4000;
+  transition: stroke-dashoffset 0.2s ease-in-out;
+}
+
+/* 3. Tarjeta dibujándose (Entrada) */
+.card-anim-in .card-svg-border rect {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 0.35s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+.card-anim-in .svg-rect-secondary {
+  transition-delay: 0.05s;
+}
+.card-anim-in .product-img,
+.card-anim-in .product-info {
+  opacity: 1;
+  transition: opacity 0.3s ease 0.1s; /* Aparece un instante después de que comienza a dibujarse */
+}

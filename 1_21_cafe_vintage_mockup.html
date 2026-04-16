@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1.21 Café / Vintage Club</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page-wrap">
+  <!-- TOP BAR -->
+  <div class="top-bar"></div>
+
+  <!-- NAV -->
+  <nav>
+    <div style="display:flex;align-items:center;flex-shrink:0">
+      <div class="nav-logo">1.21</div>
+      <div>
+        <div class="nav-sub">CAFÉ / VINTAGE CLUB</div>
+        <div style="font-family:'Crimson Text',serif;font-style:italic;font-size:10px;color:#7A8C6E;letter-spacing:1px;">TEMUCO · Manuel Montt 1.62, Local 5</div>
+      </div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#">CARTA</a></li>
+      <li><a href="#">ROPA</a></li>
+      <li><a href="#">EVENTOS</a></li>
+    </ul>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div class="search-wrap">
+        <input type="text" placeholder="Buscar..." aria-label="Buscar" />
+        <button aria-label="Buscar">&#128269;</button>
+      </div>
+      <button class="nav-icon-btn" aria-label="Cambiar tema" id="themeToggleBtn">&#9681;</button>
+      <button class="nav-icon-btn" aria-label="Favoritos">&#9825;</button>
+      <button class="nav-icon-btn" aria-label="Carrito de compras">&#128722;</button>
+    </div>
+  </nav>
+
+  <main>
+  <!-- EVENT BANNER -->
+  <section class="event-banner" id="eventBanner">
+    <div class="event-content">
+      <div>
+        <div class="event-label">Próximo evento</div>
+        <div class="event-title">DJ SET EN VIVO · 1.21</div>
+        <div class="event-detail">Sábado 11 de Abril · 16:30 hrs · Manuel Montt 1.62</div>
+      </div>
+      <div class="event-actions">
+        <button class="btn-primary event-btn" style="background:var(--cream);border-color:var(--cream)">VER DETALLES</button>
+        <svg class="event-arrow" viewBox="0 0 60 24" aria-hidden="true">
+          <path d="M 5 12 L 55 12 M 45 4 L 55 12 L 45 20" />
+        </svg>
+      </div>
+    </div>
+    <button class="event-toggle-btn" aria-label="Contraer/Expandir" id="eventToggleBtn">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <path d="M18 15l-6-6-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </section>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-pattern"></div>
+
+    <div class="hero-content">
+      <svg class="hero-title-svg" width="100%" height="250" aria-label="CAFÉ & VINTAGE" role="img">
+        <text x="0" y="75" class="svg-word word-cafe" aria-hidden="true">CAFÉ</text>
+        <text x="0" y="154" class="svg-word word-amp" aria-hidden="true">&amp;</text>
+        <text x="0" y="233" class="svg-word word-vintage" aria-hidden="true">VINTAGE</text>
+      </svg>
+      <div class="hero-subtitle">
+        Donde el buen café se encuentra con la moda.<br>
+        de las décadas que nunca pasan de moda.
+      </div>
+      <div class="hero-ctas">
+        <button class="btn-primary">VER COLECCIÓN</button>
+        <button class="btn-outline">VISÍTANOS</button>
+      </div>
+    </div>
+
+    <!-- SVG Gráfico a la derecha (Estilo Boceto/Irregular) -->
+    <div class="hero-graphic-right">
+      <svg viewBox="0 0 500 400" width="100%" height="100%" aria-hidden="true">
+        <g stroke-linecap="round" stroke-linejoin="round" fill="none">
+          
+          <!-- Trazos desfasados / Boceto (Dorado) -->
+          <g stroke="var(--gold)" stroke-width="3" opacity="0.8" class="sketch-path-gold">
+            <path d="M 85,165 L 122,85 L 125,275" />
+            <path d="M 85,275 L 165,285" />
+            <path d="M 195,265 C 190,250 215,250 215,265 C 215,280 190,280 195,265" />
+            <path d="M 245,145 C 245,70 345,70 335,165 C 325,235 255,275 255,275 L 355,275" />
+            <path d="M 375,165 L 412,85 L 415,275" />
+            <path d="M 375,275 L 455,285" />
+          </g>
+  
+          <!-- Trazos principales fuertes (Crema) -->
+          <g stroke="var(--cream)" stroke-width="8" class="sketch-path-cream">
+            <path d="M 90,160 L 130,80 L 130,280" />
+            <path d="M 90,280 L 170,280" />
+            <path d="M 205,270 C 205,260 215,260 215,270 C 215,280 205,280 205,270 Z" />
+            <path d="M 250,140 C 250,60 350,60 340,160 C 330,240 250,280 250,280 L 350,280" />
+            <path d="M 380,160 L 420,80 L 420,280" />
+            <path d="M 380,280 L 460,280" />
+          </g>
+        </g>
+  
+        <!-- Subtítulo inferior -->
+        <text x="250" y="360" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="34" fill="none" stroke="var(--cream)" stroke-width="2" style="letter-spacing: 6px" class="sketch-text">CAFÉ / VINTAGE CLUB</text>
+        <text x="253" y="363" text-anchor="middle" font-family="'Bebas Neue',sans-serif" font-size="34" fill="none" stroke="var(--gold)" stroke-width="1.5" style="letter-spacing: 6px" opacity="0.7" class="sketch-text-offset">CAFÉ / VINTAGE CLUB</text>
+      </svg>
+    </div>
+  </section>
+
+    <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="marquee-dot"></span>VINTAGE CLUB</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CAFÉ DE ESPECIALIDAD</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>ROPA NOSTÁLGICA</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>TEMUCO, CHILE</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>DESDE LOS 80s HASTA HOY</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CARHARTT · VINTAGE · INDIE</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>VINTAGE CLUB</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CAFÉ DE ESPECIALIDAD</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>ROPA NOSTÁLGICA</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>TEMUCO, CHILE</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>DESDE LOS 80s HASTA HOY</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CARHARTT · VINTAGE · INDIE</span>
+    </div>
+  </div>
+
+
+  <!-- CAFE SECTION -->
+  <section class="cafe-section">
+
+    <div class="cafe-img-panel">
+      <!-- Large anime-style coffee illustration -->
+      <svg viewBox="0 0 360 400" width="300" height="333" xmlns="http://www.w3.org/2000/svg" class="cafe-art" aria-hidden="true">
+        <g stroke="var(--espresso)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <!-- Plato y detalles -->
+          <path d="M 40 310 C 40 360, 320 360, 320 310" stroke-width="4" class="draw-line delay-0" />
+          <path d="M 70 315 C 70 345, 290 345, 290 315" stroke-width="1.5" class="draw-line delay-1" />
+          <!-- Taza -->
+          <path d="M 80 200 C 80 330, 280 330, 280 200" stroke-width="5" class="draw-line delay-0" />
+          <ellipse cx="180" cy="200" rx="100" ry="25" stroke-width="5" class="draw-line delay-1" />
+          <ellipse cx="180" cy="200" rx="85" ry="18" stroke-width="2" class="draw-line delay-2" />
+          <!-- Arte Latte -->
+          <path d="M 140 200 C 150 185, 170 215, 190 200 C 210 185, 220 205, 200 210 C 180 215, 160 190, 140 200 Z" stroke-width="2" class="draw-line delay-3" />
+          <!-- Asa de la taza -->
+          <path d="M 275 220 C 345 220, 345 285, 265 295" stroke-width="5" class="draw-line delay-1" />
+          <path d="M 280 235 C 320 235, 320 275, 272 282" stroke-width="2" class="draw-line delay-2" />
+          <!-- Vapor de café animado y elegante -->
+          <path d="M 130 170 Q 100 110, 140 70 T 130 10" stroke-width="3" class="draw-line delay-3" />
+          <path d="M 180 175 Q 160 120, 190 80 T 180 20" stroke-width="3" class="draw-line delay-4" />
+          <path d="M 230 165 Q 260 105, 220 65 T 235 15" stroke-width="3" class="draw-line delay-3" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="cafe-text-panel">
+      <div class="cafe-eyebrow">El café del barrio</div>
+      <div class="cafe-title">BUEN<br>CAFÉ,<br>MEJOR<br>VIBE.</div>
+      <div class="cafe-body">
+        Somos más que una tienda de ropa. Somos un punto de encuentro para la cultura local. Ven por el café, quédate por los discos y vuelve por la ropa.
+      </div>
+      <div class="menu-btn-wrap">
+        <button class="btn-dark-outline" style="width:fit-content; position:relative; z-index:2;">VER EL MENÚ</button>
+        <svg class="btn-circle-svg" viewBox="0 0 200 60" preserveAspectRatio="none">
+          <path d="M 30 10 Q 100 0 170 10 C 190 15 195 45 170 50 C 100 60 20 50 15 30 C 10 10 50 0 70 5" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGUNDA PISTA (Dirección opuesta) -->
+  <div class="marquee-wrap">
+    <div class="marquee-track marquee-reverse">
+      <span class="marquee-item"><span class="marquee-dot"></span>VINTAGE CLUB</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CAFÉ DE ESPECIALIDAD</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>ROPA NOSTÁLGICA</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>TEMUCO, CHILE</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>DESDE LOS 80s HASTA HOY</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CARHARTT · VINTAGE · INDIE</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>VINTAGE CLUB</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CAFÉ DE ESPECIALIDAD</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>ROPA NOSTÁLGICA</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>TEMUCO, CHILE</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>DESDE LOS 80s HASTA HOY</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>CARHARTT · VINTAGE · INDIE</span>
+    </div>
+  </div>
+
+
+
+  <!-- PRODUCTS SECTION -->
+  <section style="background:var(--cream)">
+    <div class="section-header">
+      <div class="section-title">NUEVOS PRODUCTOS</div>
+      <div class="section-sub">Observa nuestro nuevo catálogo de productos</div>
+    </div>
+
+    <div class="carousel-container">
+      <button class="carousel-btn prev" aria-label="Producto anterior">&#10094;</button>
+      <button class="carousel-btn next" aria-label="Producto siguiente">&#10095;</button>
+      <div class="carousel-wrapper">
+        <div class="carousel-track">
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_9660.jpg" alt="Polera West Coast Choppers" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Vintage · Biker Tee</div>
+              <div class="product-name">Polera West Coast Choppers</div>
+              <div class="product-price">$24.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_9640.jpg" alt="Polera Vintage Harley Davidson" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Vintage · Band Tee</div>
+              <div class="product-name">Polera Vintage Harley Davidson</div>
+              <div class="product-price">$22.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_1225.jpg" alt="Chaqueta Carhartt" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Workwear · Carhartt</div>
+              <div class="product-name">Chaqueta Carhartt Detroit</div>
+              <div class="product-price">$54.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_1223.jpg" alt="Chaqueta Carhartt Beige" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Workwear · Carhartt</div>
+              <div class="product-name">Chaqueta Carhartt Beige</div>
+              <div class="product-price">$59.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_1221.jpg" alt="Chaqueta de mezclilla" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Vintage · Denim</div>
+              <div class="product-name">Chaqueta Denim 90s</div>
+              <div class="product-price">$44.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0908.jpg" alt="Hoodie Verde" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Vintage · Hoodie</div>
+              <div class="product-name">Hoodie Forest Green</div>
+              <div class="product-price">$32.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0891.jpg" alt="Hoodie Gris" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Vintage · Hoodie</div>
+              <div class="product-name">Hoodie Heather Grey</div>
+              <div class="product-price">$29.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0838.jpg" alt="Jersey a rayas" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Vintage · Jersey</div>
+              <div class="product-name">Jersey Rayas 80s</div>
+              <div class="product-price">$28.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0692.jpg" alt="Gorra" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Accesorios · Gorra</div>
+              <div class="product-name">Gorra Trucker Vintage</div>
+              <div class="product-price">$16.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0690.jpg" alt="Gorra Negra" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Accesorios · Gorra</div>
+              <div class="product-name">Gorra Classic Black</div>
+              <div class="product-price">$14.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0635.jpg" alt="Zapatillas" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Zapatillas · Skate</div>
+              <div class="product-name">Zapatillas Court Low</div>
+              <div class="product-price">$49.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0594.jpg" alt="Zapatillas Negras" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Zapatillas · Urban</div>
+              <div class="product-name">Zapatillas All Black</div>
+              <div class="product-price">$52.990</div>
+            </div>
+          </div>
+          <div class="product-card">
+            <div class="product-img"><img src="res/IMG_0642.jpg" alt="Gorra Beige" class="img-cover" />
+              <div class="product-overlay"><button class="btn-primary" style="font-size:12px;padding:10px 24px">AÑADIR AL CARRO</button></div>
+            </div>
+            <div class="product-info">
+              <div class="product-tag">Accesorios · Gorra</div>
+              <div class="product-name">Gorra Unstructured Beige</div>
+              <div class="product-price">$15.990</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;padding:0 0 60px">
+      <button class="btn-primary" style="background:var(--espresso);color:var(--cream);border-color:var(--espresso)">VER TODO EL CATÁLOGO</button>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories-section">
+    <div class="section-header" style="padding-top:0">
+      <div class="section-title">COMPRAR POR CATEGORÍA</div>
+    </div>
+    <div class="categories-grid">
+
+      <!-- 1. POLERAS -->
+      <div class="cat-card">
+        <svg class="card-svg-border" aria-hidden="true"><rect width="100%" height="100%" rx="16" ry="16" class="svg-rect-primary"></rect><rect width="calc(100% - 8px)" height="calc(100% - 8px)" x="4" y="4" rx="12" ry="12" class="svg-rect-secondary"></rect></svg>
+        <svg viewBox="0 0 100 100" width="90" height="90" class="manga-icon">
+          <path d="M 25 32 L 10 45 L 20 60 L 30 50 L 30 90 L 75 90 L 75 50 L 85 60 L 95 45 L 80 32 Z" stroke="var(--gold)" stroke-width="2.5" fill="none" class="manga-offset" transform="translate(3, 2)"/>
+          <path d="M 25 30 L 8 45 L 20 62 L 30 52 L 30 90 L 70 90 L 70 52 L 80 62 L 92 45 L 75 30 C 65 35 35 35 25 30 Z" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 35 32 C 45 40 55 40 65 32" stroke="var(--espresso)" stroke-width="2" fill="none"/>
+          <path d="M 32 85 L 40 90 M 35 85 L 45 90 M 65 85 L 55 90 M 68 85 L 60 90" stroke="var(--espresso)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="cat-label">
+          <div class="cat-label-title">POLERAS</div>
+          <div class="cat-label-count">Band Tees, Skate & Vintage</div>
+        </div>
+      </div>
+
+      <!-- 2. JERSEYS -->
+      <div class="cat-card">
+        <svg class="card-svg-border" aria-hidden="true"><rect width="100%" height="100%" rx="16" ry="16" class="svg-rect-primary"></rect><rect width="calc(100% - 8px)" height="calc(100% - 8px)" x="4" y="4" rx="12" ry="12" class="svg-rect-secondary"></rect></svg>
+        <svg viewBox="0 0 100 100" width="90" height="90" class="manga-icon">
+          <path d="M 28 25 L 5 45 L 15 75 L 28 65 L 25 90 L 75 90 L 72 65 L 85 75 L 95 45 L 72 25 Z" stroke="var(--gold)" stroke-width="2.5" fill="none" class="manga-offset" transform="translate(-2, 3)"/>
+          <path d="M 30 25 L 8 45 L 18 70 L 30 60 L 28 90 L 72 90 L 70 60 L 82 70 L 92 45 L 70 25 Z" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 38 22 C 50 35 62 22 62 22" stroke="var(--espresso)" stroke-width="2" fill="none"/>
+          <path d="M 12 60 L 22 52 M 88 60 L 78 52 M 32 80 L 68 80 M 30 85 L 70 85" stroke="var(--espresso)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="cat-label">
+          <div class="cat-label-title">JERSEYS</div>
+          <div class="cat-label-count">Punto Clásico & Rayas</div>
+        </div>
+      </div>
+
+      <!-- 3. HOODIES -->
+      <div class="cat-card">
+        <svg class="card-svg-border" aria-hidden="true"><rect width="100%" height="100%" rx="16" ry="16" class="svg-rect-primary"></rect><rect width="calc(100% - 8px)" height="calc(100% - 8px)" x="4" y="4" rx="12" ry="12" class="svg-rect-secondary"></rect></svg>
+        <svg viewBox="0 0 100 100" width="90" height="90" class="manga-icon">
+          <path d="M 28 35 L 8 50 L 18 75 L 28 65 L 28 90 L 78 90 L 78 65 L 88 75 L 98 50 L 78 35 Z" stroke="var(--gold)" stroke-width="2.5" fill="none" class="manga-offset" transform="translate(2, 3)"/>
+          <path d="M 25 35 C 30 10 70 10 75 35 Z" stroke="var(--espresso)" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <path d="M 25 35 L 5 50 L 15 75 L 25 65 L 25 90 L 75 90 L 75 65 L 85 75 L 95 50 L 75 35 Z" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 35 65 L 45 80 L 55 80 L 65 65 Z" stroke="var(--espresso)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <path d="M 42 35 L 42 55 M 58 35 L 58 52" stroke="var(--espresso)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="cat-label">
+          <div class="cat-label-title">HOODIES</div>
+          <div class="cat-label-count">Oversize & Comfort</div>
+        </div>
+      </div>
+
+      <!-- 4. DENIM -->
+      <div class="cat-card">
+        <svg class="card-svg-border" aria-hidden="true"><rect width="100%" height="100%" rx="16" ry="16" class="svg-rect-primary"></rect><rect width="calc(100% - 8px)" height="calc(100% - 8px)" x="4" y="4" rx="12" ry="12" class="svg-rect-secondary"></rect></svg>
+        <svg viewBox="0 0 100 100" width="90" height="90" class="manga-icon">
+          <path d="M 25 25 L 5 45 L 15 70 L 28 55 L 30 90 L 70 90 L 72 55 L 85 70 L 95 45 L 75 25 Z" stroke="var(--gold)" stroke-width="2.5" fill="none" class="manga-offset" transform="translate(-3, 1)"/>
+          <path d="M 25 25 L 5 45 L 15 70 L 28 55 L 30 90 L 70 90 L 72 55 L 85 70 L 95 45 L 75 25 Z" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 35 25 L 25 15 L 50 25 L 75 15 L 65 25" stroke="var(--espresso)" stroke-width="2" fill="none" stroke-linejoin="round"/>
+          <path d="M 50 25 L 50 90 M 32 40 L 45 40 L 45 52 L 32 52 Z M 68 40 L 55 40 L 55 52 L 68 52 Z" stroke="var(--espresso)" stroke-width="1.5" fill="none"/>
+        </svg>
+        <div class="cat-label">
+          <div class="cat-label-title">DENIM</div>
+          <div class="cat-label-count">Chaquetas y Pantalones</div>
+        </div>
+      </div>
+
+      <!-- 5. GORRAS -->
+      <div class="cat-card">
+        <svg class="card-svg-border" aria-hidden="true"><rect width="100%" height="100%" rx="16" ry="16" class="svg-rect-primary"></rect><rect width="calc(100% - 8px)" height="calc(100% - 8px)" x="4" y="4" rx="12" ry="12" class="svg-rect-secondary"></rect></svg>
+        <svg viewBox="0 0 100 100" width="90" height="90" class="manga-icon">
+          <!-- Sombra desfasada -->
+          <path d="M 20 65 C 15 35 35 25 55 25 C 70 25 78 38 80 52 C 92 50 98 58 96 66 C 85 68 75 64 68 60 C 55 64 35 66 20 65 Z" stroke="var(--gold)" stroke-width="2.5" fill="none" class="manga-offset" transform="translate(-2, 3)"/>
+          <!-- Contorno principal gorra -->
+          <path d="M 20 65 C 15 35 35 25 55 25 C 70 25 78 38 80 52 C 92 50 98 58 96 66 C 85 68 75 64 68 60 C 55 64 35 66 20 65 Z" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- Detalles (botón, costuras, ajuste trasero y visera) -->
+          <path d="M 52 25 C 52 20 58 20 58 25" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+          <path d="M 55 25 C 65 40 68 53 68 60 M 55 25 C 50 40 40 65 40 65 M 21 55 C 28 52 35 55 35 65 M 78 56 C 85 55 92 61 92 61" stroke="var(--espresso)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="cat-label">
+          <div class="cat-label-title">GORRAS</div>
+          <div class="cat-label-count">Truckers & Snapbacks</div>
+        </div>
+      </div>
+
+      <!-- 6. ZAPATILLAS -->
+      <div class="cat-card">
+        <svg class="card-svg-border" aria-hidden="true"><rect width="100%" height="100%" rx="16" ry="16" class="svg-rect-primary"></rect><rect width="calc(100% - 8px)" height="calc(100% - 8px)" x="4" y="4" rx="12" ry="12" class="svg-rect-secondary"></rect></svg>
+        <svg viewBox="0 0 100 100" width="90" height="90" class="manga-icon">
+          <path d="M 15 75 C 10 65 20 60 30 60 L 45 50 C 50 45 55 40 65 40 C 80 40 85 55 80 75 Z M 10 75 L 85 75 C 90 75 90 85 85 85 L 15 85 C 10 85 10 75 10 75 Z" stroke="var(--gold)" stroke-width="2.5" fill="none" class="manga-offset" transform="translate(-2, 2)"/>
+          <path d="M 15 75 C 10 65 20 60 30 60 L 45 50 C 50 45 55 40 65 40 C 80 40 85 55 80 75 Z M 10 75 L 85 75 C 90 75 90 85 85 85 L 15 85 C 10 85 10 75 10 75 Z" stroke="var(--espresso)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M 30 65 C 45 70 55 60 70 50 M 32 58 L 40 53 M 38 63 L 46 58 M 25 75 C 25 70 20 62 14 64 M 55 45 C 65 45 75 50 78 60 M 10 80 L 85 80" stroke="var(--espresso)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="cat-label">
+          <div class="cat-label-title">ZAPATILLAS</div>
+          <div class="cat-label-count">Skate & Urban Classic</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">1.21</div>
+        <div class="footer-tagline">Café / Vintage Club · Temuco</div>
+        <div class="footer-address">
+          Manuel Montt 1.62, Local 5<br>
+          Temuco, Araucanía<br><br>
+          Lun–Sáb: 10:00 – 20:00<br>
+          Dom: 12:00 – 18:00
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>TIENDA</h4>
+        <ul>
+          <li>Poleras</li>
+          <li>Jerseys</li>
+          <li>Hoodies</li>
+          <li>Denim</li>
+          <li>Gorras</li>
+          <li>Zapatillas</li>
+          <li>Sale</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CAFÉ</h4>
+        <ul>
+          <li>Menú</li>
+          <li>Eventos</li>
+          <li>DJ Sets</li>
+          <li>Visítanos</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>CONTACTO</h4>
+        <ul>
+          <li>Instagram</li>
+          <li>WhatsApp</li>
+          <li>Envíos</li>
+          <li>Devoluciones</li>
+          <li>Preguntas frecuentes</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 1.21 Café / Vintage Club · Temuco, Chile</div>
+      <div class="footer-copy">Hecho con amor en la Araucanía</div>
+    </div>
+  </footer>
+
+</div>
+  <script src="script.js"></script>
+</body>
+</html>
