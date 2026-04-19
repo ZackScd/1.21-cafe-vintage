@@ -1363,10 +1363,27 @@ footer {
     pointer-events: none;
   }
   
+  .search-wrap input {
+    width: 100%;
+  }
+  
   /* Títulos Generales */
   .section-title { font-size: 38px; line-height: 1.1; }
   .cafe-title { font-size: 46px; }
   
+  /* Superponer paneles en la sección Café */
+  .cafe-img-panel {
+    grid-column: 1;
+    grid-row: 1;
+    filter: blur(4px);
+    opacity: 0.4; /* Suaviza el fondo para que el texto sea legible */
+  }
+  .cafe-text-panel {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2; /* Mantiene el texto y botón por encima del fondo */
+  }
+
   /* Footer */
   .footer-grid {
     grid-template-columns: 1fr 1fr;
