@@ -13,30 +13,46 @@
 
   <!-- NAV -->
   <nav>
-    <div style="display:flex;align-items:center;flex-shrink:0">
+    <button class="hamburger-btn" id="hamburgerBtn" aria-label="Abrir menú">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+
+    <div class="nav-brand-wrap">
       <div class="nav-logo">1.21</div>
       <div>
         <div class="nav-sub">CAFÉ / VINTAGE CLUB</div>
         <div style="font-family:'Crimson Text',serif;font-style:italic;font-size:10px;color:#7A8C6E;letter-spacing:1px;">TEMUCO · Manuel Montt 1.62, Local 5</div>
       </div>
     </div>
-    <ul class="nav-links">
-      <li><a href="#">CARTA</a></li>
-      <li><a href="#">ROPA</a></li>
-      <li><a href="#">EVENTOS</a></li>
-    </ul>
-    <div style="display:flex;align-items:center;gap:12px">
-      <div class="search-wrap">
-        <input type="text" placeholder="Buscar..." aria-label="Buscar" />
-        <button aria-label="Buscar">&#128269;</button>
+
+    <div class="nav-menu" id="navMenu">
+      <button class="close-menu-btn" id="closeMenuBtn" aria-label="Cerrar menú">&times;</button>
+      
+      <div class="nav-menu-header mobile-only">
+        <div class="nav-logo">1.21</div>
+        <div class="nav-sub">CAFÉ / VINTAGE CLUB</div>
       </div>
-      <button class="nav-icon-btn" aria-label="Cambiar tema" id="themeToggleBtn">&#9681;</button>
-      <button class="nav-icon-btn" aria-label="Favoritos">&#9825;</button>
-      <button class="nav-icon-btn" aria-label="Carrito de compras">&#128722;</button>
+
+      <ul class="nav-links">
+        <li><a href="#">CARTA</a></li>
+        <li><a href="#">ROPA</a></li>
+        <li><a href="#">EVENTOS</a></li>
+      </ul>
+
+      <div class="nav-icons">
+        <button class="nav-icon-btn" aria-label="Cambiar tema" id="themeToggleBtn">&#9681;</button>
+        <button class="nav-icon-btn" aria-label="Favoritos">&#9825;</button>
+        <button class="nav-icon-btn" aria-label="Carrito de compras">&#128722;</button>
+      </div>
+    </div>
+
+    <div class="search-wrap">
+      <input type="text" placeholder="Buscar..." aria-label="Buscar" />
+      <button aria-label="Buscar">&#128269;</button>
     </div>
   </nav>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <main>
   <!-- EVENT BANNER -->
   <section class="event-banner" id="eventBanner">
     <div class="event-content">
@@ -58,6 +74,8 @@
       </svg>
     </button>
   </section>
+
+  <main>
 
   <!-- HERO -->
   <section class="hero">

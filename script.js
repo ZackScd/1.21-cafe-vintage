@@ -14,6 +14,23 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Lógica para Menú Lateral (Hamburger Menu)
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const closeMenuBtn = document.getElementById('closeMenuBtn');
+  const navMenu = document.getElementById('navMenu');
+  const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+  if (hamburgerBtn && closeMenuBtn && navMenu && sidebarOverlay) {
+    const toggleMenu = () => {
+      navMenu.classList.toggle('active');
+      sidebarOverlay.classList.toggle('active');
+    };
+
+    hamburgerBtn.addEventListener('click', toggleMenu);
+    closeMenuBtn.addEventListener('click', toggleMenu);
+    sidebarOverlay.addEventListener('click', toggleMenu);
+  }
+
   // Lógica para contraer/expandir la barra de eventos
   const eventBanner = document.getElementById('eventBanner');
   const eventToggleBtn = document.getElementById('eventToggleBtn');

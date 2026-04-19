@@ -85,6 +85,25 @@ nav {
   z-index: 100;
 }
 
+/* Desktop Menu Wrapper */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: space-between;
+  margin: 0 24px 0 0;
+}
+
+.hamburger-btn, .close-menu-btn, .nav-menu-header.mobile-only, .sidebar-overlay {
+  display: none;
+}
+
+.nav-brand-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
 .nav-logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 42px;
@@ -1197,39 +1216,110 @@ footer {
 @media (max-width: 768px) {
   /* Navbar */
   nav {
-    flex-direction: column;
-    padding: 1.5rem 1rem;
-    margin: 16px;
-    gap: 20px;
+    padding: 12px 16px;
+    margin: 12px;
+    flex-wrap: nowrap;
+    gap: 0;
   }
-  nav > div:first-child {
-    flex-direction: column;
-    text-align: center;
-    gap: 10px;
-  }
-  .nav-logo {
-    border-right: none;
-    padding-right: 0;
-    margin-right: 0;
-    margin-bottom: 4px;
-  }
-  .nav-links {
-    margin-left: 0;
-    width: 100%;
+  .nav-brand-wrap { display: none; }
+  
+  .hamburger-btn {
+    display: flex;
+    align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
+    background: none;
+    border: none;
+    color: var(--espresso);
+    cursor: pointer;
+    padding: 4px;
+    flex-shrink: 0;
   }
-  .nav-links a {
-    padding: 8px 12px;
-    border-right: none;
+
+  .search-wrap {
+    flex: 1;
+    margin-left: 12px;
+    width: auto;
   }
   
-  /* Botones y Búsqueda del Nav */
-  nav > div:last-child {
-    flex-wrap: wrap;
-    justify-content: center;
+  /* Overlay del Menú Lateral */
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .sidebar-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Menú Lateral Desplegable */
+  .nav-menu {
+    position: fixed;
+    top: 0; left: -100%;
+    width: 280px;
+    max-width: 85vw;
+    height: 100vh;
+    background: var(--cream);
+    z-index: 1000;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px;
+    margin: 0;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 4px 0 16px rgba(0,0,0,0.15);
+  }
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .close-menu-btn {
+    display: block;
+    position: absolute;
+    top: 16px; right: 16px;
+    background: none;
+    border: none;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--espresso);
+    cursor: pointer;
+  }
+
+  .nav-menu-header.mobile-only {
+    display: block;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--espresso);
+    padding-bottom: 16px;
     width: 100%;
+  }
+  .nav-menu-header .nav-logo {
+    margin: 0; padding: 0; border: none; font-size: 36px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+  }
+  .nav-links a {
+    padding: 16px 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(44,24,16,0.1);
+    font-size: 20px;
+    width: 100%;
+  }
+
+  .nav-icons {
+    margin-top: auto;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 24px;
+    border-top: 1px solid rgba(44,24,16,0.1);
   }
   
   /* Event Banner */
@@ -1248,11 +1338,12 @@ footer {
     transform: none;
   }
   .event-banner.collapsed .event-toggle-btn {
-    transform: rotate(180deg);
+    top: 50%; /* Centra verticalmente el botón cuando está contraído */
+    transform: translateY(-50%) rotate(180deg);
   }
   .event-banner.collapsed {
-    max-height: 80px;
-    padding: 16px 60px 16px 20px;
+    max-height: 40px; /* Reduce la altura a la mitad */
+    padding: 8px 40px 8px 16px; /* Disminuye los márgenes interiores */
   }
   .event-arrow { display: none; } /* Ocultamos la flecha en móvil para evitar desbordes */
   
@@ -1300,6 +1391,4 @@ footer {
     width: 100%;
   }
   .carousel-container { padding: 0 40px; }
-  .search-wrap { width: 100%; }
-  .search-wrap input { width: 100%; }
 }
